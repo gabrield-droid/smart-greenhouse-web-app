@@ -1,0 +1,230 @@
+.index {
+    display: block;
+}
+
+/* Mengatur tampilan aside */
+aside {
+    position: fixed;
+    width: 22%;
+    background: #774108;
+    min-height: 100vh;
+    border-right: 2px solid #40634e;
+}
+
+/* Mengatur tampilan brand */
+.brand {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #40634e;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav div {
+    list-style: none;
+}
+
+nav div a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 75px;
+    text-decoration: none;
+    font-size: xx-large;
+}
+
+a:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
+a:active{
+    background: #ccc;
+}
+
+nav div a div {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav div a div img {
+    width: 1em;
+    height: 1em;
+}
+
+nav span {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    color: #ccc;
+}
+
+a:hover span {
+    color: #774108;
+}
+
+.logout {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.logout a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 75px;
+    text-decoration: none;
+    font-size: xx-large;
+}
+
+.logout a div {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout a div img {
+    width: 1em;
+    height: 1em;
+}
+
+.logout a span {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    color: #ccc;
+}
+
+section.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 78%;
+    min-height: 100vh;
+}
+
+header {
+    width: calc(100vw - 22%);
+    height: 90px;
+    position:fixed;
+    background-color: #DA985E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    font-size: xx-large;
+    border-bottom: 2px solid #66430d;
+    z-index: 1;
+}
+
+header .icon {
+    height: inherit;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .sidebar-toggle {
+    display: none;
+}
+
+header img{
+    width: 40px;
+    height: 40px;
+}
+
+div.judul {
+    position: fixed;
+    top: 90px;
+    left: 22vw;
+    right: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+div.judul h2 {
+    margin: 12px;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: rgba(204, 204, 204, 0.5);
+}
+
+.content {
+    position: relative;
+    margin-top: 166px;
+    height: calc(100vh - 166px);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    aside {
+        width: 75px;
+    }
+    nav span {
+        display: none;
+    }
+    .logout a span {
+        display: none;
+    }
+    section.main {
+        width: calc(100% - 75px);
+        min-height: 100vh;
+    }
+    header {
+        width: calc(100% - 75px);
+        height: 90px;
+        right: 0;
+    }
+    div.judul {
+        left: 75px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    aside {
+        top: 90px;
+        min-height: auto;
+        height: 75px;
+        width: 100vw;
+        z-index: 1;
+    }
+    .brand {
+        display: none;
+    }
+    nav {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    header {
+        left: 0;
+        width: 100vw;
+    }
+    div.judul {
+        display: none;
+        top: 165px;
+        left: 0;
+    }
+    .logout {
+        left: calc(100vw - 75px);
+    }
+    section.main{
+        width: 100%;
+    }
+    .content {
+        padding: 20px 0;
+    }
+}

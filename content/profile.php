@@ -20,7 +20,7 @@
                 }
                 else {
                 ?>
-                    <img src="file/png/001-user.png" alt="Foto profil" class="profil-picture">
+                    <img src="file/png/user.png" alt="Ikon pengguna" class="profil-picture">
                 <?php
                 }
                 ?>        

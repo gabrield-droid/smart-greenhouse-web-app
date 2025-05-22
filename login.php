@@ -9,7 +9,10 @@
     <body>
         <div class="container">
             <section class="login-box">
-                <h2>Masuk</h2>
+                <div class="login-title">
+                    <div><img src="file/png/login.png" alt="Ikon masuk"></div>
+                    <h2>Masuk</h2>
+                </div>
                 <form action="ceklogin.php" method="post">
                     <input type="text" name="username" placeholder="Nama pengguna">
                     <input type="password" name="password" placeholder="Kata sandi">

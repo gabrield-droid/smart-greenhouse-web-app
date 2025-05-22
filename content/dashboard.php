@@ -12,50 +12,50 @@
         <div class="actuators">
             <div class="actuator" id="fan">
                 <div class="image">
-                    <img src="file/png/005-fan.png" alt="Ikon pendingin">
+                    <img src="file/png/fan.png" alt="Ikon pendingin">
                 </div>
                 <div class="actuator_name">
                     <span class="name_text">Kipas Angin</span>
                 </div>
-                <div class="actuator_status">
-                    <span class="status_name" id="fan-off">Mati</span>
-                    <span class="status_name" id="fan-on">Nyala</span>
+                <div class="image actuator_status">
+                    <img class="status_icon" id="fan-on"src="file/png/on-button.png" alt="Kipas menyala">
+                    <img class="status_icon" id="fan-off"src="file/png/off-button.png" alt="Kipas mati">
                 </div>
             </div>
             <div class="actuator" id="heater">
                 <div class="image">
-                    <img src="file/png/002-heater.png" alt="Ikon pemanas">
+                    <img src="file/png/heater.png" alt="Ikon pemanas">
                 </div>
                 <div class="actuator_name">
                     <span class="name_text">Pemanas</span>
                 </div>
-                <div class="actuator_status">
-                    <span class="status_name" id="heater-off">Mati</span>
-                    <span class="status_name" id="heater-on">Nyala</span>
+                <div class="image actuator_status">
+                    <img class="status_icon" id="heater-on" src="file/png/on-button.png" alt="Pemanas menyala">
+                    <img class="status_icon" id="heater-off" src="file/png/off-button.png" alt="Pemanas mati">
                 </div>
             </div>
             <div class="actuator" id="mist">
                 <div class="image">
-                    <img src="file/png/004-humidifier.png" alt="Ikon pelembap">
+                    <img src="file/png/humidifier.png" alt="Ikon pelembap">
                 </div>
                 <div class="actuator_name">
                     <span class="name_text">Pelembap udara</span>
                 </div>
-                <div class="actuator_status">
-                    <span class="status_name" id="humidifier-off">Mati</span>
-                    <span class="status_name" id="humidifier-on">Nyala</span>
+                <div class="image actuator_status">
+                    <img class="status_icon" id="humidifier-on" src="file/png/on-button.png" alt="Pelembap menyala">
+                    <img class="status_icon" id="humidifier-off" src="file/png/off-button.png" alt="Pelembap mati">
                 </div>
             </div>
             <div class="actuator" id="lamp">
                 <div class="image">
-                    <img src="file/png/003-idea.png" alt="Ikon lampu">
+                    <img src="file/png/lamp.png" alt="Ikon lampu">
                 </div>
                 <div class="actuator_name">
                     <span class="name_text">Lampu</span>
                 </div>
-                <div class="actuator_status">
-                    <span class="status_name" id="lamp-off">Mati</span>
-                    <span class="status_name" id="lamp-on">Nyala</span>
+                <div class="image actuator_status">
+                    <img class="status_icon" id="lamp-on" src="file/png/on-button.png" alt="Lampu menyala">
+                    <img class="status_icon" id="lamp-off" src="file/png/off-button.png" alt="Lampu mati">
                 </div>
             </div>
         </div>

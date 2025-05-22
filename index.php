@@ -50,26 +50,26 @@
                 <nav>
                     <div>
                         <a href="?hal=dashboard">
-                            <div><img src="file/png/008-home.png" alt="Ikon beranda"></div>
+                            <div><img src="file/png/home.png" alt="Ikon beranda"></div>
                             <span>Beranda</span>
                         </a>
                     </div>
                     <div>
                         <a href="?hal=setting">
-                            <div><img src="file/png/009-settings.png" alt="Ikon pengaturan"></div>
+                            <div><img src="file/png/settings.png" alt="Ikon pengaturan"></div>
                             <span>Pengaturan</span>
                         </a>
                     </div>
                     <div>
                         <a href="?hal=profile">
-                            <div><img src="file/png/010-user-1.png" alt="Ikon profil"></div>
+                            <div><img src="file/png/user-profile.png" alt="Ikon profil"></div>
                             <span>Profil</span>
                         </a>
                     </div>
                 </nav>
                 <div class="logout">
                     <a href="logout.php">
-                        <div><img src="file/png/013-logout.png" alt=""></div>
+                        <div><img src="file/png/logout.png" alt=""></div>
                         <span>Keluar</span>
                     </a>
                 </div>
@@ -77,7 +77,7 @@
             <section class="main">
                 <header>
                     <span class="icon sidebar-toggle">
-                        <img src="file/png/012-bars.png" alt="Ikon menu">
+                        <img src="file/png/bars.png" alt="Ikon menu">
                     </span>
                     <span>Hello, <?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM user WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['nickname'] ?>!</span>
                     <span class="icon">
@@ -85,12 +85,12 @@
                         $photopath = "file/photo/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM user WHERE id_user='1'"))['photo'];
                         if (file_exists($photopath)) {
                     ?>
-                        <img src="<?=$photopath?>" alt="Ikon pengguna">
+                        <img src="<?=$photopath?>" alt="Foto profil">
                     <?php
                         }
                         else {
                     ?>
-                        <img src="file/png/001-user.png" alt="Ikon pengguna">
+                        <img src="file/png/user.png" alt="Ikon pengguna">
                     <?php
                         }
                     ?>

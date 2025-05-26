@@ -69,14 +69,14 @@ a:hover span {
     color: #774108;
 }
 
-.logout {
+.lower-navs {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
 }
 
-.logout a {
+.lower-navs a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -85,7 +85,7 @@ a:hover span {
     font-size: xx-large;
 }
 
-.logout a div {
+.lower-navs a div {
     height: 75px;
     width: 75px;
     display: flex;
@@ -93,12 +93,12 @@ a:hover span {
     align-items: center;
 }
 
-.logout a div img {
+.lower-navs a div img {
     width: 1em;
     height: 1em;
 }
 
-.logout a span {
+.lower-navs a span {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
     color: #ccc;
@@ -177,7 +177,7 @@ div.judul h2 {
     nav span {
         display: none;
     }
-    .logout a span {
+    .lower-navs a span {
         display: none;
     }
     section.main {
@@ -218,8 +218,8 @@ div.judul h2 {
         top: 165px;
         left: 0;
     }
-    .logout {
-        left: calc(100vw - 75px);
+    .lower-navs {
+        left: calc(100vw - 150px);
     }
     section.main{
         width: 100%;

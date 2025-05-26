@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="css/home.css">
         <link rel="stylesheet" href="css/settings.css">
         <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="css/about.css">
     </head>
     <body>
         <div class="index">
@@ -67,12 +68,16 @@
                         </a>
                     </div>
                 </nav>
-                <div class="logout">
+                <nav class="lower-navs">
+                    <a href="?hal=about">
+                        <div><img src="file/png/about.png" alt="Ikon tentang"></div>
+                        <span>Tentang</span>
+                    </a>
                     <a href="logout.php">
-                        <div><img src="file/png/logout.png" alt=""></div>
+                        <div><img src="file/png/logout.png" alt="Ikon keluar"></div>
                         <span>Keluar</span>
                     </a>
-                </div>
+                </nav>
             </aside>
             <section class="main">
                 <header>

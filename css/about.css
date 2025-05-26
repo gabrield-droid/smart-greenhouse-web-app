@@ -1,0 +1,45 @@
+.flex-about {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+}
+
+.about-item {
+    margin: 10px;
+    background-color :rgba(255, 255, 225, 0.5);
+    min-width: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.about-item h3 {
+    margin: 5px;
+}
+
+.about-item div {
+    margin: 5px;
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.about-item a {
+    text-decoration: none;
+}
+
+@media screen and (max-height: 978px) {
+    .about {
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .about {
+        align-items: flex-start;
+    }
+}
+@media screen and (max-width: 768px) {
+    .flex-about {
+        flex-basis: 100%;
+    }
+}

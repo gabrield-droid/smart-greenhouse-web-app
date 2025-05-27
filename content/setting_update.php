@@ -3,12 +3,12 @@
         die("");
     }
     
-    $query = mysqli_query($con, "UPDATE pengaturan SET 
+    $query = mysqli_query($con, "UPDATE settings SET 
         hi_temp = '$_POST[max_temperature]',
         lo_temp = '$_POST[min_temperature]',
         lo_hum = '$_POST[humidity]',
         lo_light = '$_POST[intensitas]'
-    WHERE id_data='1'");
+    WHERE user_id='1'");
 
     if ($query) {
 ?>

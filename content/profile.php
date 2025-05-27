@@ -12,7 +12,7 @@
         <div class="wider-screen">
             <div class="photo">
                 <?php
-                $photopath = "file/photo/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM user WHERE id_user='1'"))['photo'];
+                $photopath = "file/photo/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE user_id='1'"))['photo'];
                 if (file_exists($photopath)) {
                 ?>
                     <img src="<?=$photopath?>" alt="Foto profil" class="profil-picture">
@@ -32,11 +32,11 @@
                 </div>
                 <div class="form-group">
                     <label for="username">Nama pengguna:</label>
-                    <input type="text" name="username" id="username" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM user WHERE id_user='1'"))['username'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM user WHERE id_user='1'"))['username'] ?>">
+                    <input type="text" name="username" id="username" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM users WHERE user_id='1'"))['username'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM users WHERE user_id='1'"))['username'] ?>">
                 </div>
                 <div class="form-group">
                     <label for="nickname">Nama panggilan:</label>
-                    <input type="text" name="nickname" id="nickname" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM user WHERE id_user='1'"))['nickname'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM user WHERE id_user='1'"))['nickname'] ?>">
+                    <input type="text" name="nickname" id="nickname" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE user_id='1'"))['nickname'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE user_id='1'"))['nickname'] ?>">
                 </div>
             </div>
         </div>

@@ -10,10 +10,10 @@
 
     $error = "";
     if ($foto == "") {
-        $query = mysqli_query($con, "UPDATE user SET
+        $query = mysqli_query($con, "UPDATE users SET
             username = '$_POST[username]',
             nickname = '$_POST[nickname]'
-        WHERE id_user ='1'");
+        WHERE user_id ='1'");
     } else {
         if ($tipefile != "image/jpeg" and $tipefile != "image/jpg" and $tipefile != "image/png") {
             $error = "Tipe file tidak didukung!";
@@ -21,7 +21,7 @@
             $error = "Ukuran file terlalu besar (lebih dari 1MB)!";
         }
         else {
-            $query = mysqli_query($con, "SELECT * FROM user WHERE id_user='1'");
+            $query = mysqli_query($con, "SELECT * FROM users WHERE user_id='1'");
             $data = mysqli_fetch_array($query);
 
             if (file_exists("file/photo/$data[photo]")) {
@@ -29,11 +29,11 @@
             }
             move_uploaded_file($lokasi, "file/photo/".$foto);
             
-            $query = mysqli_query($con, "UPDATE user SET
+            $query = mysqli_query($con, "UPDATE users SET
                 photo = '$foto',
                 username = '$_POST[username]',
                 nickname = '$_POST[nickname]'
-            WHERE id_user ='1'");
+            WHERE user_id ='1'");
         }
     }
     

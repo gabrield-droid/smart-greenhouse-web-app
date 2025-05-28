@@ -13,7 +13,7 @@
         $query = mysqli_query($con, "UPDATE users SET
             username = '$_POST[username]',
             nickname = '$_POST[nickname]'
-        WHERE user_id ='1'");
+        WHERE user_id='{$_SESSION["user_id"]}'");
     } else {
         if ($tipefile != "image/jpeg" and $tipefile != "image/jpg" and $tipefile != "image/png") {
             $error = "Tipe file tidak didukung!";
@@ -21,7 +21,7 @@
             $error = "Ukuran file terlalu besar (lebih dari 1MB)!";
         }
         else {
-            $query = mysqli_query($con, "SELECT * FROM users WHERE user_id='1'");
+            $query = mysqli_query($con, "SELECT * FROM users WHERE user_id='{$_SESSION["user_id"]}'");
             $data = mysqli_fetch_array($query);
 
             if (file_exists("file/photo/$data[photo]")) {
@@ -33,7 +33,7 @@
                 photo = '$foto',
                 username = '$_POST[username]',
                 nickname = '$_POST[nickname]'
-            WHERE user_id ='1'");
+            WHERE user_id='{$_SESSION["user_id"]}'");
         }
     }
     

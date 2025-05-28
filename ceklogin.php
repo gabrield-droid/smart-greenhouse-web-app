@@ -5,11 +5,12 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $query = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+    $query = mysqli_query($con, "SELECT user_id, username, password FROM users WHERE username='$username' AND password='$password'");
     $data = mysqli_fetch_array($query);
     $jml = mysqli_num_rows($query);
 
     if($jml > 0){
+        $_SESSION['user_id'] = $data['user_id'];
         $_SESSION['username'] = $data['username'];
         $_SESSION['password'] = $data['password'];
 

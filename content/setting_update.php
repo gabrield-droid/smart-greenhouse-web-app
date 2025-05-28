@@ -8,7 +8,7 @@
         lo_temp = '$_POST[min_temperature]',
         lo_hum = '$_POST[humidity]',
         lo_light = '$_POST[intensitas]'
-    WHERE user_id='1'");
+    WHERE user_id='{$_SESSION["user_id"]}'");
 
     if ($query) {
 ?>

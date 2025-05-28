@@ -61,7 +61,37 @@ A web interface of a smart greenhouse project.
    Place the repository folder into this directory `/var/www/`.
 
 
-## Installation (:warning: in progress :construction:)
+## Installation
+
+### Guided Installation (Debian-based distros only)
+
+#### This script helps set up:
+- MySQL/MariaDB configuration
+- Initial user account creation
+- Apache2 VirtualHost configuration
+
+This guided setup does not configure a local domain (e. g. `smart-greenhouse-web-app.local`) or HTTPS.
+It's recommended to run this guided setup first. You may later customise configurations manually as needed.
+
+#### This method assumes:
+- You are using a Debian-based distro (e.g., Debian, Ubuntu, Linux Mint).
+- The above requirements are already installed.
+- Your MySQL/MariaDB server is running in the `localhost`.
+
+#### Steps:
+1. Open your terminal and navigate to the project directory.
+2. Execute the installation script as the root user:
+    ```bash
+    sudo ./INSTALL_Debian.sh
+    ```
+    or
+    ```bash
+    sudo bash ./INSTALL_Debian.sh
+    ```
+3. Follow the on-screen instruction.
+
+### Manual Installation
+
 1. Create a folder to store the profile photos of the user accounts
    
    Open terminal and navigate to the project's root directory.
@@ -74,7 +104,7 @@ A web interface of a smart greenhouse project.
    sudo chown www-data file/photo
    ```
 
-2. Configure the MySQL/MariaDB database and user credentials (:warning: in progress :construction:)
+2. Configure the MySQL/MariaDB database and user credentials
    
    Open MariaDB/MySQL by running this command on the terminal:
    ```bash
@@ -91,25 +121,65 @@ A web interface of a smart greenhouse project.
    USE `database_name`;
    
    -- Create the tables
+   CREATE TABLE IF NOT EXISTS `users` (
+   `user_id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+   `username` VARCHAR(20) NOT NULL,
+   `nickname` VARCHAR(20) NOT NULL,
+   `password` VARCHAR(50) NOT NULL,
+   `photo` VARCHAR(50) DEFAULT NULL
+   );
+
+   CREATE TABLE IF NOT EXISTS `settings` (
+   `setting_id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+   `hi_temp` FLOAT DEFAULT NULL,
+   `lo_temp` FLOAT DEFAULT NULL,
+   `lo_hum` FLOAT DEFAULT NULL,
+   `lo_light` FLOAT DEFAULT NULL,
+   `user_id` INT(5) NOT NULL,
+   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
+   );
+
+   CREATE TABLE IF NOT EXISTS `sensors_actuators` (
+   `record_id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+   `intensity` FLOAT DEFAULT NULL,
+   `temperature` FLOAT DEFAULT NULL,
+   `humidity` FLOAT DEFAULT NULL,
+   `fan` TINYINT(1) DEFAULT NULL,
+   `heater` TINYINT(1) DEFAULT NULL,
+   `humidifier` TINYINT(1) DEFAULT NULL,
+   `lamp` TINYINT(1) DEFAULT NULL,
+   `user_id` INT(5) NOT NULL,
+   FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
+   );
 
    -- Create the MySQL/MariaDB user credentials
+   CREATE USER IF NOT EXISTS 'database_user'@'localhost' IDENTIFIED BY 'database_password';
 
    -- Grant specific privileges to the user
-   
+   GRANT SELECT, INSERT, UPDATE, DELETE ON `database_name`.* TO 'database_user'@'localhost';
    ```
 
-3. Create the first user account
+3. Create the initial user account
 
    Inside the MySQL/MariaDB run these command:
    ```sql
    -- Substitute database_name with the value you have set on the previous step!
-   -- Substitute account_user and account_password with the values you want.
+   -- Substitute account_user, account_nick and account_password with the values you want.
 
    -- Select the database
    USE `database_name`;
 
    -- Insert the user credential into the database
-   INSERT INTO `user` (`username`, `password`) VALUES ('account_user', MD5('account_password'));
+   INSERT INTO `users` (`username`, `nickname`, `password`) VALUES ('account_user', 'account_nick', MD5('account_password'));
+
+   -- Obtain the user_id of the newly-created initial user
+   SELECT `user_id` FROM `users` WHERE `username`='account_user' AND password=md5('account_password');
+
+   -- Initialise the tables settings and sensors_actuators with record linked to the initial account.
+   -- Substitute account_id with the value you got when run the previous command
+
+   INSERT INTO `settings` (`user_id`) VALUES ('account_id');
+   INSERT INTO `sensors_actuators` (`user_id`) VALUES ('account_id');
    ```
 
 4. Create `db_config.php` file
@@ -125,9 +195,10 @@ A web interface of a smart greenhouse project.
    In the nano editor, paste the following lines:
    ```php
    <?php
-      define("DB_USER", "database_user");
-      define("DB_PASS", "database_password");
       define("DB_NAME", "database_name");
+      define("MYSQL_USER", "database_user");
+      define("MYSQL_PASS", "database_password");
+      
    ?>
    ```
    Substitute `database_user`, `database_password`, and `database_name` with the values you defined earlier in the previous step.

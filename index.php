@@ -87,10 +87,10 @@
                     <span>Hello, <?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['nickname'] ?>!</span>
                     <span class="icon">
                     <?php
-                        $photopath = "files/photos/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['photo'];
-                        if (file_exists($photopath)) {
+                        $photoname = mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['photo'];
+                        if (($photoname != NULL) AND file_exists("files/photos/".$photoname)) {
                     ?>
-                        <img src="<?=$photopath?>" alt="Foto profil">
+                        <img src="<?="files/photos/".$photoname?>" alt="Foto profil">
                     <?php
                         }
                         else {

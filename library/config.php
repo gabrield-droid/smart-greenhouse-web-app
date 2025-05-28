@@ -2,8 +2,8 @@
     require __DIR__."/db_config.php";
     
     $host = "localhost";
-    $user = DB_USER;
-    $pass = DB_USER;
+    $user = MYSQL_USER;
+    $pass = MYSQL_PASS;
     $db = DB_NAME;
 
     $con = mysqli_connect($host, $user, $pass, $db);

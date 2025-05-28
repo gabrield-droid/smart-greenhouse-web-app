@@ -97,11 +97,11 @@ It's recommended to run this guided setup first. You may later customise configu
    Open terminal and navigate to the project's root directory.
    Then, run the following command to create the folder:
    ```bash
-   sudo mkdir file/photo
+   sudo mkdir files/photos
    ```
    Then, change the ownership of the folder to allow Apache2 HTTP Server to write to and delete from the folder:
    ```bash
-   sudo chown www-data file/photo
+   sudo chown www-data files/photos
    ```
 
 2. Configure the MySQL/MariaDB database and user credentials
@@ -184,13 +184,13 @@ It's recommended to run this guided setup first. You may later customise configu
 
 4. Create `db_config.php` file
 
-   Inside the project directory, create `db_config.php` file inside `library` folder:
+   Inside the project directory, create `db_config.php` file inside `libraries` folder:
    ```bash
-   sudo touch library/db_config.php
+   sudo touch libraries/db_config.php
    ```
    To edit the file, run this command:
    ```bash
-   sudo nano library/db_config.php
+   sudo nano libraries/db_config.php
    ```
    In the nano editor, paste the following lines:
    ```php

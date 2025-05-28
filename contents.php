@@ -14,7 +14,7 @@
 
     foreach($halaman as $h) {
         if ($hal == $h) {
-            include "content/$h.php";
+            include "contents/$h.php";
             break;
         }
     }

@@ -2,10 +2,10 @@
 
 echo -e "\nWELCOME TO THE SMART GREENHOUSE WEB APP INSTALLATION WIZARD"
 
-mkdir file/photo
-chown www-data file/photo
+mkdir files/photos
+chown www-data files/photos
 
-touch library/db_config.php
+touch libraries/db_config.php
 
 echo -e "\nDATABASE PREPARATION"
 
@@ -57,11 +57,11 @@ sudo mysql -u $MYSQL_USER --password=$MYSQL_PASS -e "CREATE USER IF NOT EXISTS '
 sudo mysql -u $MYSQL_USER --password=$MYSQL_PASS -e "GRANT SELECT, INSERT, UPDATE, DELETE ON \`$DB_NAME\`.* TO \`$DB_USER\`@\`localhost\`"
 
 echo -e "\nPreparing database configuration ..."
-echo "<?php" > library/db_config.php
-echo "    define(\"DB_NAME\", \"$DB_NAME\");" >> library/db_config.php
-echo "    define(\"MYSQL_USER\", \"$DB_USER\");" >> library/db_config.php
-echo "    define(\"MYSQL_PASS\", \"$DB_PASS\");" >> library/db_config.php
-echo "?>" >> library/db_config.php
+echo "<?php" > libraries/db_config.php
+echo "    define(\"DB_NAME\", \"$DB_NAME\");" >> libraries/db_config.php
+echo "    define(\"MYSQL_USER\", \"$DB_USER\");" >> libraries/db_config.php
+echo "    define(\"MYSQL_PASS\", \"$DB_PASS\");" >> libraries/db_config.php
+echo "?>" >> libraries/db_config.php
 
 echo " Done"
 

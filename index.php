@@ -2,7 +2,7 @@
     session_start();
     ob_start();
 
-    include "library/config.php";
+    include "libraries/config.php";
 
     if (empty($_SESSION['username']) or empty($_SESSION['password'])) {
 ?>
@@ -13,7 +13,7 @@
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             margin: 0;
-            background-image: url('../file/greentexture.jpg');
+            background-image: url('../files/greentexture.jpg');
         }
     </style>
     <meta http-equiv='refresh' content='2; url=login.php'>
@@ -51,30 +51,30 @@
                 <nav>
                     <div>
                         <a href="?hal=dashboard">
-                            <div><img src="file/png/home.png" alt="Ikon beranda"></div>
+                            <div><img src="files/icons/home.png" alt="Ikon beranda"></div>
                             <span>Beranda</span>
                         </a>
                     </div>
                     <div>
                         <a href="?hal=setting">
-                            <div><img src="file/png/settings.png" alt="Ikon pengaturan"></div>
+                            <div><img src="files/icons/settings.png" alt="Ikon pengaturan"></div>
                             <span>Pengaturan</span>
                         </a>
                     </div>
                     <div>
                         <a href="?hal=profile">
-                            <div><img src="file/png/user-profile.png" alt="Ikon profil"></div>
+                            <div><img src="files/icons/user-profile.png" alt="Ikon profil"></div>
                             <span>Profil</span>
                         </a>
                     </div>
                 </nav>
                 <nav class="lower-navs">
                     <a href="?hal=about">
-                        <div><img src="file/png/about.png" alt="Ikon tentang"></div>
+                        <div><img src="files/icons/about.png" alt="Ikon tentang"></div>
                         <span>Tentang</span>
                     </a>
                     <a href="logout.php">
-                        <div><img src="file/png/logout.png" alt="Ikon keluar"></div>
+                        <div><img src="files/icons/logout.png" alt="Ikon keluar"></div>
                         <span>Keluar</span>
                     </a>
                 </nav>
@@ -82,12 +82,12 @@
             <section class="main">
                 <header>
                     <span class="icon sidebar-toggle">
-                        <img src="file/png/bars.png" alt="Ikon menu">
+                        <img src="files/icons/bars.png" alt="Ikon menu">
                     </span>
                     <span>Hello, <?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['nickname'] ?>!</span>
                     <span class="icon">
                     <?php
-                        $photopath = "file/photo/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['photo'];
+                        $photopath = "files/photos/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['photo'];
                         if (file_exists($photopath)) {
                     ?>
                         <img src="<?=$photopath?>" alt="Foto profil">
@@ -95,13 +95,13 @@
                         }
                         else {
                     ?>
-                        <img src="file/png/user.png" alt="Ikon pengguna">
+                        <img src="files/icons/user.png" alt="Ikon pengguna">
                     <?php
                         }
                     ?>
                     </span>
                 </header>
-                <?php include "konten.php"; ?>
+                <?php include "contents.php"; ?>
             </section>
         </div>
     </body>

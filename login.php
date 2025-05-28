@@ -10,10 +10,10 @@
         <div class="container">
             <section class="login-box">
                 <div class="login-title">
-                    <div><img src="file/png/login.png" alt="Ikon masuk"></div>
+                    <div><img src="files/icons/login.png" alt="Ikon masuk"></div>
                     <h2>Masuk</h2>
                 </div>
-                <form action="ceklogin.php" method="post">
+                <form action="login_process.php" method="post">
                     <input type="text" name="username" placeholder="Nama pengguna">
                     <input type="password" name="password" placeholder="Kata sandi">
                     <input type="submit" value="Masuk">

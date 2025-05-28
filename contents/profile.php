@@ -12,7 +12,7 @@
         <div class="wider-screen">
             <div class="photo">
                 <?php
-                $photopath = "file/photo/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['photo'];
+                $photopath = "files/photos/".mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['photo'];
                 if (file_exists($photopath)) {
                 ?>
                     <img src="<?=$photopath?>" alt="Foto profil" class="profil-picture">
@@ -20,7 +20,7 @@
                 }
                 else {
                 ?>
-                    <img src="file/png/user.png" alt="Ikon pengguna" class="profil-picture">
+                    <img src="files/icons/user.png" alt="Ikon pengguna" class="profil-picture">
                 <?php
                 }
                 ?>        

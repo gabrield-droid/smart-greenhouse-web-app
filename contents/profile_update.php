@@ -24,10 +24,10 @@
             $query = mysqli_query($con, "SELECT * FROM users WHERE user_id='{$_SESSION["user_id"]}'");
             $data = mysqli_fetch_array($query);
 
-            if (file_exists("file/photo/$data[photo]")) {
-                unlink("file/photo/$data[photo]");
+            if (file_exists("files/photos/$data[photo]")) {
+                unlink("files/photos/$data[photo]");
             }
-            move_uploaded_file($lokasi, "file/photo/".$foto);
+            move_uploaded_file($lokasi, "files/photos/".$foto);
             
             $query = mysqli_query($con, "UPDATE users SET
                 photo = '$foto',

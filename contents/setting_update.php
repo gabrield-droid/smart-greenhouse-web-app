@@ -3,14 +3,9 @@
         die("");
     }
     
-    $query = mysqli_query($con, "UPDATE settings SET 
-        hi_temp = '$_POST[max_temperature]',
-        lo_temp = '$_POST[min_temperature]',
-        lo_hum = '$_POST[humidity]',
-        lo_light = '$_POST[intensitas]'
-    WHERE user_id='{$_SESSION["user_id"]}'");
+    $con->updateSettings($_POST["max_temperature"], $_POST["min_temperature"], $_POST["humidity"], $_POST["intensitas"]);
 
-    if ($query) {
+    if ($con) {
 ?>
     <div class="judul">
         <h2>Pengaturan</h2>

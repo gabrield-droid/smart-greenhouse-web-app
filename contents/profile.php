@@ -31,11 +31,11 @@
                 </div>
                 <div class="form-group">
                     <label for="username">Nama pengguna:</label>
-                    <input type="text" name="username" id="username" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['username'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT username FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['username'] ?>">
+                    <input type="text" name="username" id="username" placeholder="<?= $con->getUserDatum('username') ?>" value="<?= $con->getUserDatum('username') ?>">
                 </div>
                 <div class="form-group">
                     <label for="nickname">Nama panggilan:</label>
-                    <input type="text" name="nickname" id="nickname" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['nickname'] ?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE user_id='{$_SESSION["user_id"]}'"))['nickname'] ?>">
+                    <input type="text" name="nickname" id="nickname" placeholder="<?= $con->getUserDatum('nickname') ?>" value="<?= $con->getUserDatum('nickname') ?>">
                 </div>
             </div>
         </div>

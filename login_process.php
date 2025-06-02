@@ -5,18 +5,20 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $query = mysqli_query($con, "SELECT user_id, username, password FROM users WHERE username='$username' AND password='$password'");
-    $data = mysqli_fetch_array($query);
-    $jml = mysqli_num_rows($query);
+    $users = $con->checkUser($username, $password);
+    $users->bind_result($u_id, $u_name, $u_pass);
 
-    if($jml > 0){
-        $_SESSION['user_id'] = $data['user_id'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['password'] = $data['password'];
+    if($users->fetch()){
+        $users->close();
+
+        $_SESSION['user_id'] = $u_id;
+        $_SESSION['username'] = $u_name;
+        $_SESSION['password'] = $u_pass;
 
         header('location: index.php');
     }
     else {
+        $users->close();
 ?>
         <!DOCTYPE html>
         <html>

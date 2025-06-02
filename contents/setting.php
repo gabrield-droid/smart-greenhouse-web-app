@@ -16,13 +16,13 @@
                     <div>
                         <label for ="min-temperature">Batas atas (&degC)</label>
                         <div class="input-box">
-                            <input type="text" id="max_temperature" name="max_temperature" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT hi_temp FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['hi_temp']?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT hi_temp FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['hi_temp']?>">
+                            <input type="text" id="max_temperature" name="max_temperature" placeholder="<?= $con->getSettingsValue('hi_temp') ?>" value="<?= $con->getSettingsValue('hi_temp') ?>">
                         </div>
                     </div>
                     <div>
                         <label for ="min-temperature">Batas bawah (&degC)</label>
                         <div class="input-box">
-                            <input type="text" id="max_temperature" name="min_temperature" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_temp FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_temp']?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_temp FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_temp']?>">
+                            <input type="text" id="max_temperature" name="min_temperature" placeholder="<?= $con->getSettingsValue('lo_temp') ?>" value="<?= $con->getSettingsValue('lo_temp') ?>">
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <div>
                             <label for="humidity">Batas bawah (%):</label>
                             <div class="input-box">
-                                <input type="text" id="humidity" name="humidity" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_hum FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_hum']?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_hum FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_hum']?>">
+                                <input type="text" id="humidity" name="humidity" placeholder="<?= $con->getSettingsValue('lo_hum') ?>" value="<?= $con->getSettingsValue('lo_hum') ?>">
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div>
                             <label for="humidity">Batas bawah (lx):</label>
                             <div class="input-box">
-                                <input type="text" id="intensitas" name="intensitas" placeholder="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_light FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_light']?>" value="<?= mysqli_fetch_array(mysqli_query($con, "SELECT lo_light FROM settings WHERE user_id='{$_SESSION["user_id"]}'"))['lo_light']?>">
+                                <input type="text" id="intensitas" name="intensitas" placeholder="<?= $con->getSettingsValue('lo_light') ?>" value="<?= $con->getSettingsValue('lo_light') ?>">
                             </div>
                         </div>
                     </div>

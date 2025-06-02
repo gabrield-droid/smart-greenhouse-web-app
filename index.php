@@ -84,10 +84,10 @@
                     <span class="icon sidebar-toggle">
                         <img src="files/icons/bars.png" alt="Ikon menu">
                     </span>
-                    <span>Hello, <?= mysqli_fetch_array(mysqli_query($con, "SELECT nickname FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['nickname'] ?>!</span>
+                    <span>Hello, <?= $con->getNickname() ?>!</span>
                     <span class="icon">
                     <?php
-                        $photoname = mysqli_fetch_array(mysqli_query($con, "SELECT photo FROM users WHERE username='{$_SESSION["username"]}' AND password='{$_SESSION["password"]}'"))['photo'];
+                        $photoname = $con->getProfilePhoto();
                         if (($photoname != NULL) AND file_exists("files/photos/".$photoname)) {
                     ?>
                         <img src="<?="files/photos/".$photoname?>" alt="Foto profil">

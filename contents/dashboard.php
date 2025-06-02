@@ -65,7 +65,7 @@
                     <div class="status_colour_normal"></div>
                 </div>
                 <div class="sensor_value">
-                    <div class="value_text"><?= mysqli_fetch_array(mysqli_query($con, "SELECT intensity FROM sensors_actuators WHERE user_id='{$_SESSION["user_id"]}'"))['intensity']?> lx</div>
+                    <div class="value_text"><?= $con->getSensorValue("intensity"); ?> lx</div>
                 </div>
                 <div class="sensor_name">
                     <div class="name_text">Intensitas Cahaya</div>
@@ -76,7 +76,7 @@
                     <div class="status_colour_notnormal"></div>
                 </div>
                 <div class="sensor_value">
-                    <div class="value_text"><span id="temp"></span><?= mysqli_fetch_array(mysqli_query($con, "SELECT temperature FROM sensors_actuators WHERE user_id='{$_SESSION["user_id"]}'"))['temperature']?>&deg;C</div>
+                    <div class="value_text"><span id="temp"></span><?= $con->getSensorValue('temperature');?>&deg;C</div>
                 </div>
                 <div class="sensor_name">
                     <div class="name_text">Suhu</div>
@@ -87,7 +87,7 @@
                     <div class="status_colour_normal"></div>
                 </div>
                 <div class="sensor_value">
-                    <div class="value_text"><?= mysqli_fetch_array(mysqli_query($con, "SELECT humidity FROM sensors_actuators WHERE user_id='{$_SESSION["user_id"]}'"))['humidity']?>%</div>
+                    <div class="value_text"><?= $con->getSensorValue('humidity');?>%</div>
                 </div>
                 <div class="sensor_name">
                     <div class="name_text">Kelembapan</div>

@@ -10,10 +10,7 @@
 
     $error = "";
     if ($foto == "") {
-        $query = mysqli_query($con, "UPDATE users SET
-            username = '$_POST[username]',
-            nickname = '$_POST[nickname]'
-        WHERE user_id='{$_SESSION["user_id"]}'");
+        $con->updateProfile($_POST["username"], $_POST["nickname"]);
     } else {
         if ($tipefile != "image/jpeg" and $tipefile != "image/jpg" and $tipefile != "image/png") {
             $error = "Tipe file tidak didukung!";
@@ -21,19 +18,14 @@
             $error = "Ukuran file terlalu besar (lebih dari 1MB)!";
         }
         else {
-            $query = mysqli_query($con, "SELECT * FROM users WHERE user_id='{$_SESSION["user_id"]}'");
-            $data = mysqli_fetch_array($query);
+            $photo = $con->getProfilePhoto();
 
-            if (file_exists("files/photos/$data[photo]")) {
-                unlink("files/photos/$data[photo]");
+            if (file_exists("files/photos/$photo")) {
+                unlink("files/photos/$photo");
             }
             move_uploaded_file($lokasi, "files/photos/".$foto);
             
-            $query = mysqli_query($con, "UPDATE users SET
-                photo = '$foto',
-                username = '$_POST[username]',
-                nickname = '$_POST[nickname]'
-            WHERE user_id='{$_SESSION["user_id"]}'");
+            $con->updateProfile($_POST["username"], $_POST["nickname"], $foto);
         }
     }
     
@@ -49,7 +41,7 @@
     <meta http-equiv='refresh' content='2; url=?hal=profile'>
 
 <?php
-    }elseif ($query) {
+    }elseif ($con) {
 ?>
     <div class="judul">
         <h2>Profil</h2>

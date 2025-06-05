@@ -47,13 +47,6 @@
     left: 50px;
 }
 
-#fan-off, #heater-off, #humidifier-off, #lamp-off {
-    display: block;
-}
-#fan-on, #heater-on, #humidifier-on, #lamp-on {
-    display: none;
-}
-
 .sensors {
     background-color: rgba(255,255,255,0.5);
     padding: 1cm;

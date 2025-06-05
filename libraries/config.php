@@ -34,6 +34,16 @@
             return $u_photo;
         }
 
+        public function getActuatorValue($item) {
+            if ($item == 'fan' || $item == 'heater' || $item == 'humidifier' || $item == 'lamp') {
+                $this->stmt = $this->prepare("SELECT $item FROM sensors_actuators WHERE user_id = ?");
+                $this->stmt->bind_param("i", $_SESSION["user_id"]); $this->stmt->execute();
+                $this->stmt->bind_result($u_item); $this->stmt->fetch(); $this->stmt->close();
+
+                return $u_item;
+            }
+        }
+
         public function getSensorValue($item) {
             if ($item == 'intensity' || $item == 'humidity' || $item == 'temperature') {
                 $this->stmt = $this->prepare("SELECT $item FROM sensors_actuators WHERE user_id = ?");

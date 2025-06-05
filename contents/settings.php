@@ -4,11 +4,11 @@
     }
 ?>
 
-<div class="judul">
+<div class="content-title">
     <h2>Pengaturan</h2>
 </div>
-<div class="content setting">
-    <form action="?hal=setting_update" method="post" class="setting">
+<div class="content settings">
+    <form action="?hal=settings_update" method="post" class="settings">
 
         <div class="threshold temperature">
             <h3 style="margin:5px">Batas normal suhu</h3>
@@ -22,7 +22,7 @@
                     <div>
                         <label for ="min-temperature">Batas bawah (&degC)</label>
                         <div class="input-box">
-                            <input type="text" id="max_temperature" name="min_temperature" placeholder="<?= $con->getSettingsValue('lo_temp') ?>" value="<?= $con->getSettingsValue('lo_temp') ?>">
+                            <input type="text" id="min_temperature" name="min_temperature" placeholder="<?= $con->getSettingsValue('lo_temp') ?>" value="<?= $con->getSettingsValue('lo_temp') ?>">
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <div>
                             <label for="humidity">Batas bawah (lx):</label>
                             <div class="input-box">
-                                <input type="text" id="intensitas" name="intensitas" placeholder="<?= $con->getSettingsValue('lo_light') ?>" value="<?= $con->getSettingsValue('lo_light') ?>">
+                                <input type="text" id="intensity" name="intensity" placeholder="<?= $con->getSettingsValue('lo_light') ?>" value="<?= $con->getSettingsValue('lo_light') ?>">
                             </div>
                         </div>
                     </div>

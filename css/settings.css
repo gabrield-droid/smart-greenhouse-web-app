@@ -1,4 +1,4 @@
-form.setting {
+form.settings {
     display: flex;
     flex-direction: column;
     flex-basis: 60%;
@@ -49,7 +49,7 @@ input {
 }
 
 @media screen and (max-width: 1229px) {
-    .content.setting {
+    .content.settings {
         align-items: flex-start;    
     }
 }
@@ -65,7 +65,7 @@ input {
 }
 
 @media screen and (max-width: 768px) {
-    form.setting {
+    form.settings {
         flex-basis: 100%;
     }
 }

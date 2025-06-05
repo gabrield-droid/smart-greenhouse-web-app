@@ -56,7 +56,7 @@
                         </a>
                     </div>
                     <div>
-                        <a href="?hal=setting">
+                        <a href="?hal=settings">
                             <div><img src="files/icons/settings.png" alt="Ikon pengaturan"></div>
                             <span>Pengaturan</span>
                         </a>

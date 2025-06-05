@@ -4,7 +4,7 @@
     }
 ?>
 
-<div class="judul">
+<div class="content-title">
     <h2>Beranda</h2>
 </div>
 <div class="content home">

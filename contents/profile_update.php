@@ -32,7 +32,7 @@
     if ($error != "") {
 ?>
 
-    <div class="judul">
+    <div class="content-title">
         <h2>Profil</h2>
     </div>
     <div class="content profile">
@@ -43,7 +43,7 @@
 <?php
     }elseif ($con) {
 ?>
-    <div class="judul">
+    <div class="content-title">
         <h2>Profil</h2>
     </div>
     <div class="content profile">
@@ -54,7 +54,7 @@
     }
     else {
 ?>
-    <div class="judul">
+    <div class="content-title">
         <h2>Profil</h2>
     </div>
     <div class="content profile">

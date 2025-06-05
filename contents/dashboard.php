@@ -49,39 +49,58 @@
 
         </div>
         <div class="sensors">
-            <div class="sensor">
+            <?php
+                $sensors = array(
+                    array("id" => "intensity", "lower" => "lo_light", "upper" => "", "name" => "Intensitas Cahaya", "unit" => " lx"),
+                    array("id" => "temperature", "lower" => "lo_temp", "upper" => "hi_temp", "name" => "Suhu", "unit" => "&deg;C"),
+                    array("id" => "humidity", "lower" => "lo_hum", "upper" => "", "name" => "Kelembapan", "unit" => "%")
+                );
+                
+                foreach ($sensors as $sensor) {
+            ?>
+
+            <div class="sensor" id="<?= $sensor['id'] ?>">
                 <div class="status_sensor">
-                    <div class="status_colour_normal"></div>
+            <?php
+                $sensorStatus;
+                if ($sensor['lower'] == "" AND $sensor['upper'] == "") {
+                    $sensorStatus = "status_colour_normal";
+                }
+                elseif ($sensor['lower'] != "" AND $sensor['upper'] == "") {
+                    if ($con->getSensorValue($sensor['id']) >= $con->getSettingsValue($sensor['lower'])) {
+                        $sensorStatus = "status_colour_normal";
+                    } else {
+                        $sensorStatus = "status_colour_notnormal";
+                    }
+                }
+                elseif ($sensor['lower'] == "" AND $sensor['upper'] != "") {
+                    if ($con->getSensorValue($sensor['id']) <= $con->getSettingsValue($sensor['upper'])) {
+                        $sensorStatus = "status_colour_normal";
+                    } else {
+                        $sensorStatus = "status_colour_notnormal";
+                    }
+                }
+                else {
+                    if (($con->getSensorValue($sensor['id']) >= $con->getSettingsValue($sensor['lower'])) AND ($con->getSensorValue($sensor['id']) <= $con->getSettingsValue($sensor['upper']))) {
+                        $sensorStatus = "status_colour_normal";
+                    } else {
+                        $sensorStatus = "status_colour_notnormal";
+                    }
+                }
+            ?>
+                    <div class="<?= $sensorStatus ?>"></div>
                 </div>
                 <div class="sensor_value">
-                    <div class="value_text"><?= $con->getSensorValue("intensity"); ?> lx</div>
+                    <div class="value_text"><?= $con->getSensorValue($sensor['id']) ?><?= $sensor['unit'] ?></div>
                 </div>
                 <div class="sensor_name">
-                    <div class="name_text">Intensitas Cahaya</div>
+                    <div class="name_text"><?= $sensor['name'] ?></div>
                 </div>
             </div>
-            <div class="sensor">
-                <div class="status_sensor">
-                    <div class="status_colour_notnormal"></div>
-                </div>
-                <div class="sensor_value">
-                    <div class="value_text"><span id="temp"></span><?= $con->getSensorValue('temperature');?>&deg;C</div>
-                </div>
-                <div class="sensor_name">
-                    <div class="name_text">Suhu</div>
-                </div>
-            </div>
-            <div class="sensor">
-                <div class="status_sensor">
-                    <div class="status_colour_normal"></div>
-                </div>
-                <div class="sensor_value">
-                    <div class="value_text"><?= $con->getSensorValue('humidity');?>%</div>
-                </div>
-                <div class="sensor_name">
-                    <div class="name_text">Kelembapan</div>
-                </div>
-            </div>
+            <?php
+                }
+            ?>
+
         </div>
     </div>
 </div>

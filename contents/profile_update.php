@@ -47,7 +47,7 @@
         <h2>Profil</h2>
     </div>
     <div class="content profile">
-        <p align='center' style='color: white'>Data berhasil disimpan!</p>
+        <p align='center' style='color: white'>Profil berhasil diperbarui!</p>
     </div>
     <meta http-equiv='refresh' content='2; url=?hal=profile'>
 <?php
@@ -58,7 +58,7 @@
         <h2>Profil</h2>
     </div>
     <div class="content profile">
-        <p align='center' style='color: white'>Tidak dapat menyimpan data!<br><?= mysqli_error() ?></p>
+        <p align='center' style='color: white'>Gagal memperbarui profil!<br><?= mysqli_error() ?></p>
     </div>
     <meta http-equiv='refresh' content='2; url=?hal=profile'>
 <?php

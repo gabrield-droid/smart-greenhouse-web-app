@@ -19,7 +19,7 @@
     <meta http-equiv='refresh' content='2; url=login.php'>
 </head>
 <body>
-    <p align='center' style="color: orange"> Anda harus login terlebih dahulu! </p>
+    <p align='center' style="color: orange"> Anda harus masuk terlebih dahulu! </p>
 </body>
 </html>
 <?php
@@ -84,7 +84,7 @@
                     <span class="icon sidebar-toggle">
                         <img src="files/icons/bars.png" alt="Ikon menu">
                     </span>
-                    <span>Hello, <?= $con->getNickname() ?>!</span>
+                    <span>Halo, <?= $con->getNickname() ?>!</span>
                     <span class="icon">
                     <?php
                         $photoname = $con->getProfilePhoto();

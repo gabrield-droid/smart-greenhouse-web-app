@@ -16,6 +16,6 @@
     <meta http-equiv='refresh' content='2; url=login.php'>
 </head>
 <body>
-    <p align="center" style="color: white">Anda telah logout!</p>
+    <p align="center" style="color: white">Anda telah keluar!</p>
 </body>
 </html>

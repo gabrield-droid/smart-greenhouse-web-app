@@ -33,7 +33,7 @@
                 <meta http-equiv='refresh' content='2; url=login.php'>
             </head>
             <body>
-                <p align='center' style="color: red">Login Gagal!</p>
+                <p align='center' style="color: red">Usaha Masuk Gagal!</p>
             </body>
         </html>
 <?php

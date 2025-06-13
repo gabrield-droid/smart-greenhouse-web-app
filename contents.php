@@ -3,7 +3,7 @@
         die("");
     }
 
-    $halaman = array("dashboard", "settings", "settings_update", "profile", "profile_update", "about");
+    $halaman = array("dashboard", "settings", "profile", "about");
 
     if (isset($_GET['hal'])) {
         $hal = $_GET['hal'];

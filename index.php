@@ -26,6 +26,12 @@
     }
     else {
         define('INDEX', true);
+                    
+        if (isset($_FILES['photo']) || isset($_POST["username"]) && isset($_POST["nickname"])) {
+            include "contents/profile_update.php";
+        } elseif (isset($_POST["max_temperature"]) && isset($_POST["min_temperature"]) && isset($_POST["humidity"]) && isset($_POST["intensity"])) {
+            include "contents/settings_update.php";
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +45,9 @@
         <link rel="stylesheet" href="css/settings.css">
         <link rel="stylesheet" href="css/profile.css">
         <link rel="stylesheet" href="css/about.css">
+        <?php if (isset($settings_update_result) || isset($profile_update_result)) { ?>
+            <link rel="stylesheet" href="css/form_submitted.css">
+        <?php } ?>
     </head>
     <body>
         <div class="index">

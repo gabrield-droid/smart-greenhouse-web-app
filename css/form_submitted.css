@@ -1,0 +1,32 @@
+.form_confirmation {
+    position: absolute;
+    top: 166px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    height: 18px;
+    color: white;
+}
+
+.content{
+    margin-top: 216px;
+    height: calc(100vh - 216px);
+}
+
+@media screen and (max-width: 1229px) {
+    .form_confirmation {
+        margin-bottom: 8px;
+    }
+    .content {
+        margin-top: 206px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form_confirmation {
+        top: 174px;
+    }
+    .content {
+        padding: 0;
+    }
+}

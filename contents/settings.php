@@ -7,8 +7,11 @@
 <div class="content-title">
     <h2>Pengaturan</h2>
 </div>
+<?php if (isset($settings_update_result)) { ?>
+    <p class='form_confirmation'><?= $settings_update_result ?></p>
+<?php } ?>
 <div class="content settings">
-    <form action="?hal=settings_update" method="post" class="settings">
+    <form action="" method="post" class="settings">
 
         <div class="threshold temperature">
             <h3 style="margin:5px">Batas normal suhu</h3>

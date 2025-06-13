@@ -1,3 +1,8 @@
+<?php
+    if (isset($_POST["login_attempt"])) {
+        include "./login_process.php";
+    }
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -13,7 +18,11 @@
                     <div><img src="files/icons/login.png" alt="Ikon masuk"></div>
                     <h2>Masuk</h2>
                 </div>
-                <form action="login_process.php" method="post">
+                <?php if (isset($failed_login)) { ?>
+                <p align='center' style="color: red">Usaha Masuk Gagal!</p>
+                <?php } ?>
+                <form action="" method="post">
+                    <input type="hidden" name="login_attempt" value="">
                     <input type="text" name="username" placeholder="Nama pengguna">
                     <input type="password" name="password" placeholder="Kata sandi">
                     <input type="submit" value="Masuk">

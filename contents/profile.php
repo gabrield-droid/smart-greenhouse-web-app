@@ -7,8 +7,11 @@
 <div class="content-title">
     <h2>Profil</h2>
 </div>
+<?php if (isset($profile_update_result)) { ?>
+    <p class='form_confirmation'><?= $profile_update_result ?></p>
+<?php } ?>
 <div class="content profile">
-    <form action="?hal=profile_update" method="post" class="profile" enctype="multipart/form-data">
+    <form action="" method="post" class="profile" enctype="multipart/form-data">
         <div class="wider-screen">
             <div class="photo">
                 <?php

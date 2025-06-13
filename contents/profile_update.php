@@ -28,40 +28,14 @@
             $con->updateProfile($_POST["username"], $_POST["nickname"], $foto);
         }
     }
-    
+
     if ($error != "") {
-?>
-
-    <div class="content-title">
-        <h2>Profil</h2>
-    </div>
-    <div class="content profile">
-        <p align='center' style='color: red'><?= $error ?></p>
-    </div>
-    <meta http-equiv='refresh' content='2; url=?hal=profile'>
-
-<?php
+        $profile_update_result = $error;
     }elseif ($con) {
-?>
-    <div class="content-title">
-        <h2>Profil</h2>
-    </div>
-    <div class="content profile">
-        <p align='center' style='color: white'>Profil berhasil diperbarui!</p>
-    </div>
-    <meta http-equiv='refresh' content='2; url=?hal=profile'>
-<?php
+        $profile_update_result = "Profil berhasil diperbarui!";
     }
     else {
-?>
-    <div class="content-title">
-        <h2>Profil</h2>
-    </div>
-    <div class="content profile">
-        <p align='center' style='color: white'>Gagal memperbarui profil!<br><?= mysqli_error() ?></p>
-    </div>
-    <meta http-equiv='refresh' content='2; url=?hal=profile'>
-<?php
+        $profile_update_result = "Gagal memperbarui profil!<br>" . mysqli_error();
     }
 ?>
     
